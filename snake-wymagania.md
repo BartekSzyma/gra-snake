@@ -8,7 +8,7 @@ Prosta gra Snake dla jednego gracza. Gracz steruje wężem, zbiera jedzenie i un
 
 - R1. Plansza to siatka 20 x 20 pól.
 - R2. Każde pole jest puste, zajęte przez węża albo zajęte przez jedzenie.
-- R3. Krawędzie planszy są ścianami (brak przechodzenia na drugą stronę).
+- R3. Krawędzie planszy nie są ścianami - plansza jest zawinięta. Gdy głowa węża wyjdzie poza krawędź, pojawia się na skrajnym polu po przeciwnej stronie (w tym samym wierszu albo kolumnie) i jedzie dalej w tym samym kierunku. Przejście przez krawędź nie kończy gry.
 
 ## 3. Wąż
 
@@ -29,9 +29,7 @@ Prosta gra Snake dla jednego gracza. Gracz steruje wężem, zbiera jedzenie i un
 
 ## 5. Koniec gry
 
-- R12. Gra kończy się, gdy głowa węża:
-  - uderzy w ścianę, albo
-  - wejdzie na własny segment ciała.
+- R12. Gra kończy się, gdy głowa węża wejdzie na własny segment ciała - także wtedy, gdy ten segment leży tuż za krawędzią, po przeciwnej stronie planszy (R3).
 - R13. Gra kończy się wygraną, gdy wąż zajmie całą planszę.
 - R14. Po końcu gry wyświetla się komunikat "Koniec gry" z wynikiem i opcją restartu (klawisz Spacja lub Enter).
 
@@ -58,5 +56,6 @@ Prosta gra Snake dla jednego gracza. Gracz steruje wężem, zbiera jedzenie i un
 
 - Wąż długości 3 zjada jedzenie -> ma długość 4, wynik = 1.
 - Wąż porusza się w prawo, gracz wciska strzałkę w lewo -> wąż dalej jedzie w prawo.
-- Głowa węża wchodzi na krawędź planszy -> gra się kończy, widać komunikat "Koniec gry".
+- Głowa węża stoi na skrajnym prawym polu wiersza i jedzie w prawo -> w następnym takcie jest na skrajnym lewym polu tego samego wiersza, gra trwa dalej.
+- Głowa węża przechodzi przez krawędź na pole zajęte przez własne ciało -> gra się kończy, widać komunikat "Koniec gry".
 - Nowe jedzenie nigdy nie pojawia się na polu zajętym przez węża.
